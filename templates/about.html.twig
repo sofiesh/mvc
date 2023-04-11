@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1>About the MVC course</h1>
+
+<p>This course is focued on object oriented programming. 
+    If you're as green as I am(was) here's some <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">reading up.</a>
+In brief the course contains: programming for webb, syntaxes, semantics, connections to databases, 
+data structures and functions. Sounds cool right?!</p>
+
+<p>We're developing applications for the webb using a framework where we're 
+    integrating techniques such as Apache, PHP, HTML, CSS and SQL with a webbased framework.
+</p>
+
+<p>The first step was to install Symfony and build a website, this one.
+    Then we'll build a card game, work on classes and objects, do a mini project, 
+    work on testing (unit testing), integrate with database, automize testing and finally
+    we will do a project based on a specification. 
+</p>
+
+<p>LET'S GO!</p>
+
+
+
+    <p>Apparently this image has something to do with the course, maybe I'll understand it later or you can tell me.
+        Also you can click it to open it up.
+    </p>
+    <a href="{{ asset('img/glider.svg') }}">
+        <img src="{{ asset('img/glider.svg') }}" alt="">
+    </a>
+{% endblock %}
