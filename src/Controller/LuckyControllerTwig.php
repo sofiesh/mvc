@@ -39,24 +39,11 @@ class LuckyControllerTwig extends AbstractController
         return $this->render('report.html.twig');
     }
 
-
-    #[Route("/api/quote", name: "quote")]
-    public function quote(): Response
+    #[Route("/kmom", name: "kmom")]
+    public function kmom(): Response
     {
-        $todaysquote = random_int(0, 2);
-
-        $quoteList = array(
-            0 => "Carpe Diem",
-            1 => "Live your dream",
-            2 => "Send it"
-        );
-
-        $data = [
-            'quote' => $quoteList[$todaysquote]
-        ];
-
-        return new JsonResponse($data);
-
+        return $this->render('kmom.html.twig');
     }
+
 
 }
