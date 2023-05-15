@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Game{% endblock %}
+
+{% block main %}
+<h1>Card game</h1>
+
+<p>This is a classical card game.<br>
+    <a href="https://en.wikipedia.org/wiki/Standard_52-card_deck"> 
+        About a standard 52-card deck on Wikipedia.</a>
+</p>
+
+<h3>About the structure of classes and how they relate to eachother:</h3>
+<p>About.........</p>
+<p>UML class diagram with IMG</p>
+
+<h3>All sub-pages</h3>
+<ul>
+    <li><a href="{{ path('deck_draw') }}">card/deck</a></li>
+    <li><a href="{{ path('home') }}">Link to card/deck/shuffle not working</a></li>
+    <li><a href="{{ path('home') }}">Link to card/deck/draw not working</a></li>
+    <li><a href="{{ path('home') }}">Link to card/deck/draw/:number not working</a></li>
+</ul>
+
+<br>
+<br>
+{% endblock %}

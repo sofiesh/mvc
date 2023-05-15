@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Game{% endblock %}
+
+{% block main %}
+<h1>Card deck suffled</h1>
+
+<p>Showing all cards shuffled</p>
+
+<ul>
+    {% for value in deck %}
+    <li>{{ value }}</li>
+    {% endfor %}
+</ul>
+
+
+<br>
+<br>
+{% endblock %}

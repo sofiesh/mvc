@@ -24,14 +24,25 @@
                 <li><a href="{{ path('home') }}">Home</a></li>
                 <li><a href="{{ path('about') }}">About</a></li>
                 <li><a href="{{ path('report') }}">Report</a></li>
-                <li><a href="{{ path('lucky_number') }}">Lucky number</a></li>
+                <li><a href="{{ 'game/card' }}">Card Game</a></li>
                 <li><a href="{{ path('kmom') }}">Kmom's</a></li>
             </ul>
+
         </nav>
 
-        <main>{% block body %}{% endblock %}</main>
+        <main>{% block main %}{% endblock %}</main>
 
-        <footer>{% block footer %}FOOTER{% endblock %}</footer>
+        <footer>{% block footer %}
+            <a href="{{ asset('img/paper_unicorn.png') }}">
+                <img src="{{ asset('img/paper_unicorn.png') }}" alt="unicorn">
+                <a href="{{ asset('img/paper_unicorn.png') }}">
+                    <img src="{{ asset('img/paper_unicorn.png') }}" alt="unicorn">
+                    <a href="{{ asset('img/paper_unicorn.png') }}">
+                        <img src="{{ asset('img/paper_unicorn.png') }}" alt="unicorn">
+                        <a href="{{ asset('img/paper_unicorn.png') }}">
+                            <img src="{{ asset('img/paper_unicorn.png') }}" alt="unicorn">
+                                                                    
+            {% endblock %}</footer>
 
 
     </body>

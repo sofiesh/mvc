@@ -2,16 +2,21 @@
 
 {% block title %}Kmom's{% endblock %}
 
-{% block body %}
-    <h1>Kmom: Some assignments</h1>
+{% block main %}
+    <h1>Links to some assignments</h1>
 
 
 <h2><a id="#kmom01">Kmom01</a></h2>
 <ul>
     <li><a href="{{ 'api/quote' }}">Quote</a></li>
+    <li><a href="{{ path('lucky_number') }}">Lucky number</a></li>
 </ul>
 
 <h2><a id="#kmom02">Kmom02</a></h2>
+<ul>
+    <li><a href="{{ 'game/pig' }}">Pig Game</a></li>
+    <li><a href="{{ 'game/card' }}">Card Game</a></li>
+</ul>
 
 <h2><a id="#kmom03">Kmom03</a></h2>
 

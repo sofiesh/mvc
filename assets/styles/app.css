@@ -1,6 +1,5 @@
 body {
-    background-color: rgb(220, 150, 239);
-
+    background: linear-gradient(356deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     margin: 0 auto;
     max-width: 800px;
 }
@@ -24,7 +23,7 @@ h1 {
 }
 
 footer {
-    background-color: blue;
+    background-color: #ffffff;
 }
 
 .home-image {
@@ -89,4 +88,44 @@ footer {
     background: #ddd;
     color: black;
   } 
+
+  /* Style the pig game */
   
+body {
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: #eee;
+    font-size: 2em;
+}
+
+input {
+    font-size: 1em;
+}
+
+h1 {
+    border-bottom: 4px double green;
+}
+
+.die {
+    font-size: 2em;
+}
+
+.flash-notice {
+    padding: 0.5em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.flash-notice:before {
+    content: "ⓘ";
+}
+
+.flash-warning {
+    padding: 0.5em;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+.flash-warning:before {
+    content: "⚠";
+}
