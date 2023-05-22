@@ -2,14 +2,21 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
-class LuckyControllerJson
+class ApiControllerJson extends AbstractController
 {
+    #[Route("/api", name: "api")]
+    public function home(): Response
+    {
+        return $this->render('jsonapi.html.twig');
+    }
+
     #[Route("/api/quote", name: "quote")]
-    public function quote(): Response
+    public function jsonQuote(): Response
     {
         $todaysquote = random_int(0, 2);
 

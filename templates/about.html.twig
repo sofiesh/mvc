@@ -3,9 +3,27 @@
 {% block title %}About{% endblock %}
 
 {% block main %}
-    <h1>About the MVC course</h1>
+{% block twocol %}
+<div class="about-grid-two-column-layout">
 
-<p>This course is focued on object oriented programming. 
+<div class="about-col-right" style="background-image: ({{ asset('img/kursen_IMG_5854.jpeg') }})">
+<ul>
+    <li><a href="https://github.com/dbwebb-se/mvc">Kursens GitHub repo</a></li>
+    <li><a href="https://github.com/sofiesh/mvc">Mitt eget GitHub repo</a></li>
+</ul>
+
+<p>Apparently this image has something to do with the course, maybe I'll understand it later or you can tell me.
+    Also you can click it to open it up.
+</p>
+<a href="{{ asset('img/glider.svg') }}">
+    <img src="{{ asset('img/glider.svg') }}" alt="">
+</a>
+
+</div>
+
+<div class="about-col-left">
+    <h2>About the MVC course</h2>
+<p>This course is focused on object oriented programming. 
     If you're as green as I am(was) here's some <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">reading up.</a>
 In brief the course contains: programming for webb, syntaxes, semantics, connections to databases, 
 data structures and functions. Sounds cool right?!</p>
@@ -22,12 +40,7 @@ data structures and functions. Sounds cool right?!</p>
 
 <p>LET'S GO!</p>
 
-
-
-    <p>Apparently this image has something to do with the course, maybe I'll understand it later or you can tell me.
-        Also you can click it to open it up.
-    </p>
-    <a href="{{ asset('img/glider.svg') }}">
-        <img src="{{ asset('img/glider.svg') }}" alt="">
-    </a>
+</div>
+</div>
+{% endblock %}
 {% endblock %}

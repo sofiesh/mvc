@@ -1,5 +1,7 @@
 <?php
+
 namespace App;
+
 /**
  * Showing off a standard class with methods and properties.
  */

@@ -3,15 +3,11 @@
 {% block title %}Card Game{% endblock %}
 
 {% block main %}
-<h1>Card deck</h1>
+<h1>Card deck draw card</h1>
 
-<p>Showing all cards sorted by color and value</p>
+<p>You drew: {{ hand }}</p>
 
-<ul>
-    {% for value in deck %}
-    <li>{{ value }}</li>
-    {% endfor %}
-</ul>
+<p>Cards left in deck: </p>
 
 
 <br>

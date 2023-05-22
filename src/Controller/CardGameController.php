@@ -4,24 +4,26 @@ namespace App\Controller;
 
 use App\Card\Card;
 use App\Card\CardDeck;
+use App\Card\CardHand;
 // use App\Card\CardGraphic;
-// use App\Card\CardHand;
+
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+// use Symfony\Component\HttpFoundation\JsonResponse;
 
 class CardGameController extends AbstractController
 {
-    #[Route("/game/card", name: "card_game")]
+    #[Route("/card", name: "card_game")]
     public function home(): Response
     {
         return $this->render('card/home.html.twig');
     }
 
-    #[Route("/game/deck/draw", name: "deck_draw")]
+    #[Route("/card/deck", name: "deck")]
     public function number(): Response
     {
         $deck = new CardDeck();
@@ -29,17 +31,15 @@ class CardGameController extends AbstractController
         $data = [
             "deck" => $deck->getDeckAsArray(),
         ];
-        
 
-        return $this->render('card/deck_draw.html.twig', $data);
+
+        return $this->render('card/deck.html.twig', $data);
     }
 
-    #[Route("/game/deck/shuffle", name: "deck_shuffle")]
+    #[Route("/card/deck/shuffle", name: "deck_shuffle")]
     public function shuffle(): Response
     {
         $shuffleDeck = new CardDeck();
-
-
 
         $data = [
             "deck" => $shuffleDeck->getDeckAsShuffleArray(),
@@ -48,8 +48,25 @@ class CardGameController extends AbstractController
         return $this->render('card/deck_shuffle.html.twig', $data);
     }
 
+    #[Route("/card/deck/draw", name: "deck_draw", methods: ['GET'])]
+    public function draw(
+        SessionInterface $session
+    ): Response {
+        $hand = new CardHand();
+        // $deck = $session->get("deck");
 
-    /*
+        $data = [
+            "hand" => $hand->drawCard()
+        ];
+
+        return $this->render('card/deck_draw.html.twig', $data);
+    }
+
+
+    
+
+
+    /** 
     #[Route("/game/pig/test/roll", name: "test_roll_dice")]
     public function testRollDice(): Response
     {
@@ -152,7 +169,7 @@ class CardGameController extends AbstractController
             "pigDices" => $session->get("pig_dices"),
             "pigRound" => $session->get("pig_round"),
             "pigTotal" => $session->get("pig_total"),
-            "diceValues" => $dicehand->getString() 
+            "diceValues" => $dicehand->getString()
         ];
 
         return $this->render('pig/play.html.twig', $data);
@@ -183,7 +200,7 @@ class CardGameController extends AbstractController
         }
 
         $session->set("pig_round", $roundTotal + $round);
-        
+
         return $this->redirectToRoute('pig_play');
     }
 
@@ -205,5 +222,9 @@ class CardGameController extends AbstractController
 
         return $this->redirectToRoute('pig_play');
     }*/
+    
+    // slmdwlmd
 
+    #
+    
 }

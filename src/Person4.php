@@ -1,5 +1,7 @@
 <?php
+
 namespace App;
+
 /**
  * Showing off a standard class with methods and properties.
  */
@@ -80,6 +82,7 @@ class Person4
     }
 }
 
+/** 
 // När vi vet namn och ålder:
 $object = new Person4("MegaMic", 42);
 echo $object->details();
@@ -94,3 +97,4 @@ var_dump($object);
 $object = new Person4();
 echo $object->details();
 var_dump($object);
+*/

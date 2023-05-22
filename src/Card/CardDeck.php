@@ -4,7 +4,7 @@ namespace App\Card;
 
 class CardDeck   //detta är min klass
 {
-    private $deck = [];  // den här klassen har ett värde som heter deck. 
+    private $deck = [];  // den här klassen har ett värde som heter deck.
     // här gör jag också deck till en array
     // om jag vill komma åt arrayen deck så skriver jag $this->deck, för det är deck
     // som hör till just den decken som är skapad.
@@ -12,8 +12,7 @@ class CardDeck   //detta är min klass
     public function __construct()
     {
         $colors = ['spades', 'hearts', 'clubs', 'diamonds'];
-        for ($q = 0; $q < 4; $q++)
-        {
+        for ($q = 0; $q < 4; $q++) {
             for ($i = 1; $i < 13; $i++) {
                 $newCard = new Card();
                 $newCard->setValue($i);
@@ -21,15 +20,23 @@ class CardDeck   //detta är min klass
                 $this->deck[] = $newCard->getCardAsText();
             }
         }
- 
+
     }
 
-    public function getDeckAsArray(){
+    public function getDeckAsArray()
+    {
         return $this->deck;
     }
 
-    public function getDeckAsShuffleArray(){
+    public function getDeckAsShuffleArray()
+    {
         shuffle($this->deck);
+        return $this->deck;
+    }
+
+    public function countDeck()
+    {
+        count($this->deck);
         return $this->deck;
     }
 

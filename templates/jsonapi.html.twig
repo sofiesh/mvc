@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Json routes{% endblock %}
+
+{% block main %}
+<h1>Json Routes</h1>
+<p>Table with all the json routes and description</p>
+
+<table style="width:100%">
+    <tr>
+      <th>Link</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><a href="{{ 'api/quote' }}">http://www.student.bth.se/~sosw22/dbwebb-kurser/mvc/me/report/public/api</a></td>
+      <td>This page is generated with JSON. It randomly selects a quote that is shown along with the date and time that it was generated.</td>
+    </tr>
+    <tr>
+      <td>Second row</td>
+      <td>...</td>
+    </tr>
+  </table> 
+
+{% endblock %}

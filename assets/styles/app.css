@@ -2,15 +2,43 @@ body {
     background: linear-gradient(356deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     margin: 0 auto;
     max-width: 800px;
+    font-size: medium;
+    background-color: #fff3cd;
+
 }
+
+.about-grid-two-column-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    background-color: #fff3cd;
+}
+
+.about-col-right {
+    background-color: #fff3cd;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.about-col-left {
+    color: red;
+}
+
+/* Header for the about page */
+h2 {
+    border-bottom: 4px double rgb(93, 55, 93);
+}
+
 
 main {
     margin: 0 auto;
     max-width: 800px;
+    font-size: medium;
 }
 
 h1 {
-    border-bottom: 4px double #ccc;
+    border-bottom: 4px double rgb(93, 55, 93);
 }
 
 .site-header {
@@ -128,4 +156,15 @@ h1 {
 }
 .flash-warning:before {
     content: "⚠";
+}
+
+/* Json page */
+table, th, td {
+    border: 2px solid whitesmoke;
+}
+th {
+    background-color: rgb(93, 55, 93);
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: large;
 }
