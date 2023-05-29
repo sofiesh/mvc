@@ -2,12 +2,18 @@
 
 namespace App\Card;
 
-class CardDeck  //detta är min klass
+class CardGraphic extends CardHand   //detta är min klass
 {
-    private $deck = [];  // den här klassen har ett värde som heter deck.
+    private $representation = [
+        '♥',
+        '♠',
+        '♣',
+        '♦',
+
+    ];  // den här klassen har ett värde som heter representation.
     // här gör jag också deck till en array
-    // om jag vill komma åt arrayen deck så skriver jag $this->deck, för det är deck
-    // som hör till just den decken som är skapad.
+    // om jag vill komma åt arrayen representation så skriver jag $this->representation,
+    // för det är representation som hör till just den hand som är skapad.
 
     public function __construct()
     {
@@ -42,14 +48,9 @@ class CardDeck  //detta är min klass
 
     public function draw()
     {
-        $randomPositionInDeck = array_rand($this->deck, 1);
-        $drawnCard = $this->deck[$randomPositionInDeck];
+        $drawnCard = array_rand($this->deck, 1);
 
-        unset($this->deck[$randomPositionInDeck]);
-        return $drawnCard; // from "thisdeck" return value at "randomPositionInDeck"
-
-        // return (array_rand($this->deck, 1));
-        //
+        return $drawnCard;
     }
 
 }

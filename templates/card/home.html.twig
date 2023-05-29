@@ -10,17 +10,61 @@
         About a standard 52-card deck on Wikipedia.</a>
 </p>
 
-<h3>About the structure of classes and how they relate to eachother:</h3>
-<p>About.........</p>
-<p>UML class diagram with IMG</p>
+<h3>Classes</h3>
+<table style="width:100%">
+    <tr>
+      <th>Class</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Card</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>CardDeck</td>
+      <td>...</td>
+    </tr>
+    <tr>
+        <td>CardHand</td>
+        <td>...</td>
+    </tr>
+    <tr>
+        <td>CardGraphic</a></td>
+        <td>Not implemented yet.</td>
+    </tr>
+</table> 
 
-<h3>All sub-pages</h3>
-<ul>
-    <li><a href="{{ path('deck') }}">card/deck</a></li>
-    <li><a href="{{ path('deck_shuffle') }}">card/deck/shuffle</a></li>
-    <li><a href="{{ path('deck_draw') }}">card/deck/draw</a></li>
-    <li><a href="{{ path('deck') }}">card/deck/draw/:number NOT WORKING</a></li>
-</ul>
+<h3>UML class diagram with IMG</h3>
+<p>...</p>
+
+<h3>Sub-pages for the game</h3>
+
+<table style="width:100%">
+    <tr>
+      <th>Link</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><a href="{{ path('deck') }}">card/deck</a></td>
+      <td>Shows all cards of the deck sorted by suit and value.</td>
+    </tr>
+    <tr>
+      <td><a href="{{ path('deck_shuffle') }}">card/deck/shuffle</a></td>
+      <td>Shuffles the cards and displays all cards of the deck.</td>
+    </tr>
+    <tr>
+        <td><a href="{{ path('deck_draw') }}">card/deck/draw</a></td>
+        <td>Draws a card from the deck and shows the remaining deck.</td>
+    </tr>
+    <tr>
+        <td><a href="{{ path('deck_draw') }}/5">card/deck/draw/:number</a></a></td>
+        <td>Draws a number of cards that is selected through the path. It also 
+          shows the number of cards remaining in the deck. The example draws 5 cards 
+          you can adjust the path to choose another number.
+        </td>
+    </tr>
+    </table>
+
 
 <br>
 <br>

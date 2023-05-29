@@ -60,9 +60,11 @@ class Person3
     }
 }
 
+/**
 $object = new Person3();
 $object->setAge(42);
 $object->setName("MegaMic");
 
 echo $object->details();
 var_dump($object);
+ */

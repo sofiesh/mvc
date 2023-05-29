@@ -16,9 +16,11 @@ class Person2
     }
 }
 
+/**
 $object = new Person2();
 // $object->age = 42;
 // $object->name = "MegaMic";
 
 echo $object->details();
 var_dump($object);
+ */

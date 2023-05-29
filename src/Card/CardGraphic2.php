@@ -2,10 +2,16 @@
 
 namespace App\Card;
 
-class Card
+class CardGraphic2 extends Card
 {
     private $value;
     private $color;
+    private $representation = [
+        '♥',
+        '♠',
+        '♣',
+        '♦',
+    ];
 
     public function setValue(int $value)
     {
@@ -20,11 +26,12 @@ class Card
     public function setColor(string $color)
     {
         $this->color = $color;
+        return $this->representation[$this->color - 1];
     }
 
     public function getColor()
     {
-        return $this->color;
+        return $this->representation[$this->color - 1];
     }
 
     public function getCardAsText()
@@ -33,7 +40,6 @@ class Card
         return $text;
     }
 
-    /** Try to draw a card placed in Card class
     public function drawCard()
     {
         $this->color = random_int(1, 4);
@@ -41,5 +47,5 @@ class Card
         // $drawncard = $this->color . $this->value;
         $text = $this->color . $this->value;
         return $text;
-    } */
+    }
 }

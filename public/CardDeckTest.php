@@ -2,7 +2,7 @@
 
 namespace App\Card;
 
-class CardDeck  //detta är min klass
+class CardDeck   //detta är min klass
 {
     private $deck = [];  // den här klassen har ett värde som heter deck.
     // här gör jag också deck till en array
@@ -42,14 +42,11 @@ class CardDeck  //detta är min klass
 
     public function draw()
     {
-        $randomPositionInDeck = array_rand($this->deck, 1);
-        $drawnCard = $this->deck[$randomPositionInDeck];
+        $drawCard = array_rand($this->deck[], 1);
 
-        unset($this->deck[$randomPositionInDeck]);
-        return $drawnCard; // from "thisdeck" return value at "randomPositionInDeck"
-
-        // return (array_rand($this->deck, 1));
-        //
+        return $drawCard;
     }
 
 }
+
+echo $drawCard;

@@ -1,11 +1,17 @@
 <?php
 
-    $cards = array(
-        "Hearts", "Spades", "Dimes", "Clubs");
-    $pickCard = $cards[array_rand($cards, 1)];
+include(__DIR__ ."/../src/Card/Card.php");
 
-    var_dump($pickCard);
+        $colors = ['spades', 'hearts', 'clubs', 'diamonds'];
+        for ($q = 0; $q < 4; $q++) {
+            for ($i = 1; $i < 13; $i++) {
+                $newCard = new Card();
+                $newCard->setValue($i);
+                $newCard->setColor($colors[$q]);
+                $this->deck[] = $newCard->getCardAsText();
+            }
+        }
+
+print_r($colors);
 
 
-    
-?>

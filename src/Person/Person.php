@@ -81,7 +81,7 @@ class Person
     */
     public function __destruct()
     {
-        echo __METHOD__;
+        // echo __METHOD__;
     }
 }
 

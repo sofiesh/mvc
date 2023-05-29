@@ -82,7 +82,7 @@ class Person4
     }
 }
 
-/** 
+/**
 // När vi vet namn och ålder:
 $object = new Person4("MegaMic", 42);
 echo $object->details();

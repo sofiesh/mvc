@@ -2,6 +2,11 @@
 
 namespace App\Controller;
 
+use App\Card\Card;
+use App\Card\CardDeck;
+use App\Card\CardHand;
+use App\Card\CardGraphic2;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -33,5 +38,18 @@ class ApiControllerJson extends AbstractController
 
         return new JsonResponse($data);
 
+    }
+
+    #[Route("/api/deck", name: "deck")]
+    public function jsonNumber(): Response
+    {
+        $deck = new CardDeck();
+
+        $data = [
+            "deck" => $deck->getDeckAsArray(),
+        ];
+
+
+        return new JsonResponse($data);
     }
 }

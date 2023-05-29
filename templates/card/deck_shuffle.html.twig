@@ -3,9 +3,11 @@
 {% block title %}Card Game{% endblock %}
 
 {% block main %}
-<h1>Card deck suffled</h1>
+<h1>Card deck shuffled</h1>
 
-<p>Showing all cards shuffled</p>
+<p>Refresh page to shuffle again.</p>
+
+<p><a href="{{ path('deck_draw') }}">Draw one card from the deck.</a></p>
 
 <ul>
     {% for value in deck %}
