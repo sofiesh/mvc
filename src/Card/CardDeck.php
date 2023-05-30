@@ -11,7 +11,7 @@ class CardDeck  //detta är min klass
 
     public function __construct()
     {
-        $colors = ['spades', 'hearts', 'clubs', 'diamonds'];
+        $colors = ['♠', '♥', '♦', '♣'];
         for ($q = 0; $q < 4; $q++) {
             for ($i = 1; $i < 14; $i++) {
                 $newCard = new Card();
