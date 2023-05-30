@@ -17,8 +17,44 @@
     </tr>
     <tr>
       <td><a href="{{ 'api/deck' }}">api/deck</a></td>
-      <td>...</td>
+      <td>This page is generated with JSON. It creates a deck and displays it sorted by color and value.</td>
+    </tr>
+    <tr>
+      <td><a href="{{ 'api/deck/shuffle' }}">api/deck/shuffle</a>
+        <form method="post" action="">
+          <p>
+              <input type="submit" name="shuffle" value="Shuffle"
+                  onClick="this.form.action='{{ path('api_shuffle_post') }}';"
+              >
+          </p>
+      </form></td>
+      <td>This page is generated with JSON. If a previous deck was created it will destroy that deck and create a new that is displayed unordered.</td>
+    </tr>
+    <tr>
+      <td><a href="{{ 'api/deck/draw' }}">api/deck/draw</a>
+        <form method="post" action="">
+          <p>
+              <input type="submit" name="draw" value="Draw"
+                  onClick="this.form.action='{{ path('api_deck_draw') }}';"
+              >
+          </p>
+      </form>
+    </td>
+      <td>This page is generated with JSON. It creates a deck and stores it to the session. It draws a card from the deck and therefore deletes that instance from the array.</td>
+    </tr>
+    <tr>
+      <td><a href="{{ 'api/deck/draw/:number' }}">api/deck/draw/:number</a>
+        <form method="post" action="">
+          <p>
+              <input type="submit" name="draw_multiple" value="Draw multiple"
+                  onClick="this.form.action='{{ path('api_draw_number', {num:5}) }}';"
+              >
+          </p>
+      </form>
+    </td>
+      <td>This page is generated with JSON. It draws a number of cards that is selected with the path and stores it to the session.</td>
     </tr>
   </table> 
+
 
 {% endblock %}
