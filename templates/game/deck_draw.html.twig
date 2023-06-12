@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Game{% endblock %}
+
+{% block main %}
+<h1>Draw card from the deck</h1>
+
+{# <p>Color that you drew: {{ color }}</p>
+<p>Value that you drew: {{ value }}</p> #}
+
+
+<p>Test draw a card: {{ draw }}</p>
+
+<p>Test: {{ draw }}</p>
+
+<p>Remaining cards in deck: {{ countDeck }}.</p>
+<p>Our new deck:
+    <ol>
+        {% for value in deck %}
+        <li>{{ value }}</li>
+        {% endfor %}
+    </ol>
+</p>
+
+
+<br>
+<br>
+{% endblock %}

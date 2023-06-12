@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Game{% endblock %}
+
+{% block main %}
+<h1>Card deck shuffled</h1>
+
+<p>Refresh page to shuffle again.</p>
+
+<p><a href="{{ path('deck_draw') }}">Draw one card from the deck.</a></p>
+
+<ul>
+    {% for value in deck %}
+    <li>{{ value }}</li>
+    {% endfor %}
+</ul>
+
+
+<br>
+<br>
+{% endblock %}

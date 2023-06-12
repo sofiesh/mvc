@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Card\Card;
 use App\Card\CardDeck;
 use App\Card\CardHand;
-// use App\Card\CardGraphic2;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -71,7 +70,7 @@ class ApiControllerJson extends AbstractController
         return new JsonResponse($data);
     }
 
-    #[Route("/card/deck/draw", name: "api_deck_draw")]
+    #[Route("/api/deck/draw", name: "api_deck_draw")]
     public function jsonDrawCard(
         SessionInterface $session
     ): Response {
@@ -89,7 +88,7 @@ class ApiControllerJson extends AbstractController
         return new JsonResponse($data);
     }
 
-    #[Route("/card/deck/draw/{num<\d+>}", name: "api_draw_number")]
+    #[Route("/api/deck/draw/{num<\d+>}", name: "api_draw_number")]
     public function jsonDrawNumber(
         int $num,
         SessionInterface $session

@@ -1,0 +1,80 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Game 21{% endblock %}
+
+{% block main %}
+<h1>Game 21</h1>
+
+<p>About the game:<br>
+    <a href="https://sv.wikipedia.org/wiki/Tjugoett_(kortspel)"> 
+        21 - Twenty One</a>
+</p>
+
+<h3>Sub-pages for the game</h3>
+
+<table style="width:100%">
+    <tr>
+      <th>Action</th>
+      <th>Link</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>START THE GAME</td>
+      <td><a href="{{ path('deck') }}">card/deck</a></td>
+      <td>Shows the empty hands for the player and the bank.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="{{ path('deck') }}">card/deck</a></td>
+      <td>Shuffles the cards and displays all cards of the deck.</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><a href="{{ path('deck') }}">card/deck</a></td>
+        <td>Draws a card from the deck and shows the remaining deck.</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><a href="{{ path('deck') }}">card/deck</a></td>
+        <td>Draws a number of cards that is selected through the path. It also 
+          shows the number of cards remaining in the deck. The example draws 5 cards 
+          you can adjust the path to choose another number.
+        </td>
+    </tr>
+    </table>
+
+<h3>Classes</h3>
+<table style="width:100%">
+    <tr>
+      <th>Class</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Card</td>
+      <td>This class says that a card will have a color(suit) and a value.</td>
+    </tr>
+    <tr>
+      <td>CardDeck</td>
+      <td>This class says which colors and how many values that will be created for a complete deck.
+        This is used to draw cards from the deck. Since I didnt manage to build CardHand, the draw is done by removing from the deck and show those cards but it will not add cards into a hand.
+      </td>
+    </tr>
+    <tr>
+        <td>CardHand</td>
+        <td>...</td>
+    </tr>
+    <tr>
+        <td>CardGraphic</a></td>
+        <td>Not implemented yet. I was planning to create this but 
+          since the assignment took so long I opted for the easy way and just changed the "color" assignment in the CardDeck class.
+        </td>
+    </tr>
+</table> 
+
+<h3>UML class diagram with IMG</h3>
+<p>...</p>
+
+
+<br>
+<br>
+{% endblock %}

@@ -3,6 +3,10 @@
     "license": "proprietary",
     "minimum-stability": "stable",
     "prefer-stable": true,
+
+    "name": "some/name",
+    "description": "Some description will be useful too!",
+
     "require": {
         "php": ">=8.1",
         "ext-ctype": "*",
@@ -86,6 +90,12 @@
         "symfony/polyfill-php81": "*"
     },
     "scripts": {
+        "phpmd": "tools/phpmd/vendor/bin/phpmd . text phpmd.xml || true",
+        "phpstan": "tools/phpstan/vendor/bin/phpstan || true",
+        "lint": [
+            "@phpmd",
+            "@phpstan"
+        ],
         "csfix": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src",
         "csfix:dry": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --dry-run -v",
         "auto-scripts": {

@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Game{% endblock %}
+
+{% block main %}
+<h1>Draw card from the deck</h1>
+
+{# <p>Color that you drew: {{ color }}</p>
+<p>Value that you drew: {{ value }}</p> #}
+
+<p>Drawn cards:
+    <ol>
+        {% for value in handOfCards %}
+        <li>{{ value }}</li>
+        {% endfor %}
+    </ol>
+</p>
+
+<p>Remaining cards in deck: {{ countDeck }}.</p>
+
+<a href="{{ path('deck_shuffle') }}">Reset the deck.</a>
+
+<p>Remaining cards in deck:
+    <ol>
+        {% for value in deck %}
+        <li>{{ value }}</li>
+        {% endfor %}
+    </ol>
+</p>
+
+
+<br>
+<br>
+{% endblock %}

@@ -54,7 +54,10 @@
     </tr>
     <tr>
       <td><a href="{{ path('deck_shuffle') }}">card/deck/shuffle</a></td>
-      <td>Shuffles the cards and displays all cards of the deck.</td>
+      <td>Shuffles the cards and displays all cards of the deck. 
+        Also initiates the session so in order to use 
+        /draw or /draw/:number this needs to be used first.
+      </td>
     </tr>
     <tr>
         <td><a href="{{ path('deck_draw') }}">card/deck/draw</a></td>
