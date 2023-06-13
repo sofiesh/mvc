@@ -42,6 +42,21 @@ main {
     color: red;
 }
 
+/* Styling for the 21 game pages*/
+.twenty_one_game {
+    display: grid;
+    background-image: radial-gradient(circle, rgb(71, 144, 71), rgb(55, 113, 55), rgb(38, 79, 38));
+    background-color: rgb(114, 157, 118);
+    padding: 1em 5em;
+}
+
+.twenty_one_game_h1 {
+    color:#ddd;
+    font-size: 2em;
+    font-weight: bold;
+    border-bottom: 4px double #442844;
+}
+
 
 /* Header styling */
 h1 {

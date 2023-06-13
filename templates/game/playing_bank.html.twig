@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Playing Bank{% endblock %}
+
+{% block main %}
+{% block gamemain %}
+<div class="twenty_one_game">
+<h1>Playing Bank [PLAYING]</h1>
+
+<p>Your current hand is: ...</p>
+
+<p>Your current score is: [total]</p>
+
+<form method="post" action="">
+    <input type="submit" name="do_it" value="Hit (Draw card)">
+</form>
+
+<form method="post" action="">
+    <p>
+        <input type="submit" name="do_it" value="Stay (Check who won)"
+        onClick="this.form.action='{{ path('playing_bank') }}';this.form.method='get';"
+        >
+    </p>
+  </form>
+
+<form method="post" action="">
+    <p>
+        <input type="submit" name="startgame" value="Start new game"
+        onClick="this.form.action='{{ path('playing_player') }}';this.form.method='get';"
+        >
+    </p>
+  </form>
+
+<br>
+<br>
+
+
+
+<!-- {{ include('flash.html.twig') }} -->
+{% endblock %}
+{% endblock %}
