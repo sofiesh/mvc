@@ -7,12 +7,25 @@
 <div class="twenty_one_game">
 <h1>Playing Player [START]</h1>
 
-<p>Your current hand is: [show cards]</p>
+<p>Your current hand is:
+{% if playerHand is null or playerHand is empty %}
+You have no cards yet
+{% else %}
+  {% for value in playerHand %}
+      {{ value }}, 
+  {% endfor %}
+  {% endif %}
 
-<p>Your current score is: [total]</p>
+
+  <p>{% if message is not empty %}
+    {{ message }}
+    {% endif %}
+  </p>
+
 
 <form method="post" action="">
-    <input type="submit" name="do_it" value="Hit (Draw card)">
+    <input type="submit" name="do_it" value="Hit (Draw card)"
+    onClick="this.form.action='{{ path('draw_player') }}';this.form.method='get';">
 </form>
 
 <form method="post" action="">
@@ -26,7 +39,7 @@
 <form method="post" action="">
     <p>
         <input type="submit" name="startgame" value="Start new game"
-        onClick="this.form.action='{{ path('playing_player') }}';this.form.method='get';"
+        onClick="this.form.action='{{ path('new_game') }}';this.form.method='get';"
         >
     </p>
   </form>

@@ -2,6 +2,8 @@
 
 namespace App\Person;
 
+use App\Person\PersonAgeException;
+
 /**
  * Showing off a standard class with methods and properties.
  */

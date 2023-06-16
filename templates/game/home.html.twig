@@ -12,10 +12,14 @@
         21 - Twenty One</a>
 </p>
 
+<p>Documentation for this game:<br>
+  <a href="{{ path('doc_game_21') }}">game/doc</a>
+  </p>
+
 <form method="post" action="">
   <p>
       <input type="submit" name="startgame" value="Start the game"
-      onClick="this.form.action='{{ path('playing_player') }}';this.form.method='get';"
+      onClick="this.form.action='{{ path('new_game') }}';this.form.method='get';"
       >
   </p>
 </form>

@@ -2,6 +2,9 @@
 
 namespace App\Dice;
 
+use App\Dice\Dice;
+use App\Dice\DiceHand;
+
 class DiceGraphic extends Dice
 {
     private $representation = [
@@ -17,6 +20,7 @@ class DiceGraphic extends Dice
     {
         parent::__construct();
     }
+
     public function getAsString(): string
     {
         return $this->representation[$this->value -1];

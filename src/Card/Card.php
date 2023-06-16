@@ -6,7 +6,7 @@ class Card
 {
     private $value;
     private $color;
-
+    
     public function setValue(int $value)
     {
         $this->value = $value;
@@ -33,13 +33,8 @@ class Card
         return $text;
     }
 
-    /** Try to draw a card placed in Card class
-    public function drawCard()
+    public function getACard() 
     {
-        $this->color = random_int(1, 4);
-        $this->value = random_int(1, 13);
-        // $drawncard = $this->color . $this->value;
-        $text = $this->color . $this->value;
-        return $text;
-    } */
+        return $this->value . $this->color;
+    }
 }

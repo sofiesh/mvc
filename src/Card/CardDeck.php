@@ -17,7 +17,8 @@ class CardDeck  //detta är min klass
                 $newCard = new Card();
                 $newCard->setValue($i);
                 $newCard->setColor($colors[$q]);
-                $this->deck[] = $newCard->getCardAsText();
+                $this->deck[] = $newCard;
+                //$this->deck[] = $newCard->getCardAsText();
             }
         }
 

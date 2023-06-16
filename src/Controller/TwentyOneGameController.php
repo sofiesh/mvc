@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Card\Card;
 use App\Card\CardDeck;
 use App\Card\CardHand;
-use App\Card\CardGraphic2;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,32 +23,175 @@ class TwentyOneGameController extends AbstractController
             return $this->render('game/home.html.twig');
         }
 
+        #[Route("/game/doc", name: "doc_game_21")]
+        public function doc(): Response
+        {
+            return $this->render('game/doc.html.twig');
+        }
+
+        // Initialize a new game by clearing the session
+        #[Route("/game/new_game", name: "new_game", methods: ['GET'])]
+        public function newGame(
+            SessionInterface $session
+        ): Response {
+
+            // start a new session for this game
+            session_start();
+            // destroy the previous game
+            session_destroy();
+            // start a new session for this game
+            session_start();
+
+            //Start new shuffled deck and store in session
+            $thisRoundDeck = new CardDeck();
+            $session->set("deck", $thisRoundDeck);
+            
+            return $this->redirectToRoute('playing_player');
+        }
+
+
         #[Route("/game/playing_player", name: "playing_player")]
         public function playing_player(
             SessionInterface $session
         ): Response
         {
-            // Destroy session
-            $_SESSION = [];
-
             //Start new shuffled deck and store in session
-            $shuffleDeck = new CardDeck();
-            $session->set("deck", $shuffleDeck);
-    
-            $data = [
-                "deck" => $shuffleDeck->getDeckAsShuffleArray(),
-            ];
+            // $thisRoundDeck = new CardDeck();
+            $thisRoundDeck = $session->get("deck");
             
-            // Assign drawn card to hand ???
+            // $playerHand = $session->get("playerHand");
 
+            if ($session->has('playerHand')) {
+                $playerHand = $session->get('playerHand');
+            } else {
+                $playerHand = new CardHand();
+            }
 
-            return $this->render('game/playing_player.html.twig');
+            $bankHand = $session->get("bankHand");
+
+            // Error message if player got 21.
+            $playerTotal = $playerHand->getHandValue();
+            $message = '';
+
+            if ($playerTotal > 21) {
+                $message = "You got over 21 and lost to the bank. Start a new game!"; 
+            } else {
+                $message = "Your current score is:" . $playerTotal;
+            }
+
+            $data = [
+                // Show the deck
+                // "deck" => $thisRoundDeck->getDeckAsShuffleArray(),
+                // Count deck
+                "countDeck" => $thisRoundDeck->countDeck(),
+                // Show playerHand
+                "playerHand" => $playerHand->getCardsAsStringArray(),
+                // Show playerTotal
+                "playerTotal" => $playerHand->getHandValue(),
+                // Message if lost
+                "message" => $message,
+            ];
+
+            var_dump($data);
+
+            return $this->render('game/playing_player.html.twig', $data);
         }
 
+        // Player draws cards
+        #[Route("/game/player_draw", name: "draw_player", methods: ['GET'])]
+        public function drawPlayer(
+            SessionInterface $session
+        ): Response {
+            // Get the deck from the session
+            $thisRoundDeck = $session->get("deck");
+            
+            // Check if there is an existing CardHand in the session
+            // if there is add card to that, if not create a new CardHand.
+            if ($session->has('playerHand')) {
+                $playerHand = $session->get('playerHand');
+            } else {
+                $playerHand = new CardHand();
+            }
+
+            // draw card and add them to $playerHand
+            $playerHand->addCard($thisRoundDeck->draw());
+
+            $data = [
+                // Shows the hand of the player
+                // "playerHand" => $playerHand->getCards(),
+            ];
+
+            $session->set("playerHand", $playerHand);
+
+            // $session->set("player_round_total", $playerRoundTotal + $round);
+    
+            return $this->redirectToRoute('playing_player');
+        }
+
+
+        // Table for bank
         #[Route("/game/playing_bank", name: "playing_bank")]
-        public function playing_bank(): Response
-        {
-            return $this->render('game/playing_bank.html.twig');
+        public function playing_bank(
+            SessionInterface $session
+        ): Response
+            {
+            // Get the deck and hands from the session
+            $thisRoundDeck = $session->get("deck");
+            $playerHand = $session->get("playerHand");
+
+            if ($session->has('bankHand')) {
+                $bankHand = $session->get('bankHand');
+            } else {
+                $bankHand = new CardHand();
+            }
+            
+            $data = [
+                // This shows the deck
+                // "deck" => $thisRoundDeck->getDeckAsShuffleArray(),
+                // Count deck
+                "countDeck" => $thisRoundDeck->countDeck(),
+                // Show bankHand
+                "bankHand" => $bankHand,
+                // Show bankHand
+                "bankHand" => $bankHand->getCardsAsStringArray(),
+                // Show bankTotal
+                "bankTotal" => $bankHand->getHandValue(),
+            ];
+
+            var_dump($data);
+
+            return $this->render('game/playing_bank.html.twig', $data);
+            }
+
+        // Bank draws cards
+        #[Route("/game/bank_draw", name: "draw_bank", methods: ['GET'])]
+        public function drawBank(
+            SessionInterface $session
+        ): Response {
+            // Get the deck from the session
+            $thisRoundDeck = $session->get("deck");
+            
+            // Check if there is an existing CardHand in the session
+            // if there is add card to that, if not create a new CardHand.
+            if ($session->has('bankHand')) {
+                $bankHand = $session->get('bankHand');
+            } else {
+                $bankHand = new CardHand();
+            }
+
+            // draw card and add them to $playerHand
+            $bankHand->addCard($thisRoundDeck->draw());
+
+            $data = [
+                // Shows the hand of the bank
+                "bankHand" => $bankHand,
+            ];
+
+            $session->set("bankHand", $bankHand);
+
+            // $session->set("bank_round_total", $bankRoundTotal + $round);
+    
+            return $this->redirectToRoute('playing_bank');
         }
 
     }
