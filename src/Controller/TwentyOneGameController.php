@@ -224,7 +224,7 @@ class TwentyOneGameController extends AbstractController
 
             if ($bankTotal == 21) {
                 $winnerMessage = "BANK!"; 
-            } elseif ($bankTotal > $playerTotal) {
+            } elseif ($bankTotal >= $playerTotal) {
                 $winnerMessage = "BANK!";
             } else {
                 $winnerMessage = "PLAYER!";
