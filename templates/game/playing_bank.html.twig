@@ -17,8 +17,10 @@
     {% endif %}
   
   
-  <p>Your current score is: {{ bankTotal }}
-  </p>
+    <p>{% if message is not empty %}
+      {{ message }}
+      {% endif %}
+    </p>
 
 
 <form method="post" action="">
@@ -29,7 +31,7 @@
 <form method="post" action="">
     <p>
         <input type="submit" name="do_it" value="Stay (Check who won)"
-        onClick="this.form.action='{{ path('playing_bank') }}';this.form.method='get';"
+        onClick="this.form.action='{{ path('bank_stay') }}';this.form.method='get';"
         >
     </p>
   </form>

@@ -57,6 +57,15 @@ main {
     border-bottom: 4px double #442844;
 }
 
+.twenty_one_winner {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+}
+
 
 /* Header styling */
 h1 {

@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Winner{% endblock %}
+
+{% block main %}
+{% block gamemain %}
+<div class="twenty_one_game">
+<h1>The winner is</h1>
+
+<div class="twenty_one_winner">
+<p>{% if winnerMessage is not empty %}
+  {{ winnerMessage }}
+  {% endif %}
+</p>
+</div>
+
+<form method="post" action="">
+    <p>
+        <input type="submit" name="startgame" value="Start new game"
+        onClick="this.form.action='{{ path('new_game') }}';this.form.method='get';"
+        >
+    </p>
+  </form>
+
+<br>
+<br>
+</div>
+{% endblock %}
+{% endblock %}

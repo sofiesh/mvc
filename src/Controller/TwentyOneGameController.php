@@ -92,6 +92,8 @@ class TwentyOneGameController extends AbstractController
                 "message" => $message,
             ];
 
+            $session->set("playerTotal", $playerHand->getHandValue());
+
             var_dump($data);
 
             return $this->render('game/playing_player.html.twig', $data);
@@ -144,6 +146,18 @@ class TwentyOneGameController extends AbstractController
             } else {
                 $bankHand = new CardHand();
             }
+
+            // Error message if player got 21.
+            $bankTotal = $bankHand->getHandValue();
+            $message = '';
+
+            if ($bankTotal > 21) {
+                $message = "Your score is " . $bankTotal . ", which means you got over 21 and lost to the player. Start a new game!"; 
+            } elseif ($bankTotal == 21) {
+                $message = "Congrats, you hit" . $bankTotal . " and won!";
+            } else {
+                $message = "Your current score is:" . $bankTotal;
+            }
             
             $data = [
                 // This shows the deck
@@ -156,7 +170,11 @@ class TwentyOneGameController extends AbstractController
                 "bankHand" => $bankHand->getCardsAsStringArray(),
                 // Show bankTotal
                 "bankTotal" => $bankHand->getHandValue(),
+                // Message if lost
+                "message" => $message,
             ];
+
+            $session->set("bankTotal", $bankHand->getHandValue());
 
             var_dump($data);
 
@@ -192,6 +210,39 @@ class TwentyOneGameController extends AbstractController
             // $session->set("bank_round_total", $bankRoundTotal + $round);
     
             return $this->redirectToRoute('playing_bank');
+        }
+
+        // Route for STAY - compare scores
+        #[Route("/game/bank_stay", name: "bank_stay", methods: ['GET'])]
+        public function stayBank(
+            SessionInterface $session
+        ): Response {
+            // Get deck and scores from the session
+            $thisRoundDeck = $session->get("deck");
+            $playerTotal = $session->get("playerTotal");
+            $bankTotal = $session->get("bankTotal");
+
+            if ($bankTotal == 21) {
+                $winnerMessage = "BANK!"; 
+            } elseif ($bankTotal > $playerTotal) {
+                $winnerMessage = "BANK!";
+            } else {
+                $winnerMessage = "PLAYER!";
+            }
+            
+            $data = [
+                // show bankHand
+                // "bankHand" => $bankHand,
+                // show scores
+                "playerTotal" => $playerTotal,
+                "bankTotal" => $bankTotal,
+                "winnerMessage" => $winnerMessage,
+            ];
+
+            var_dump($data);
+   
+            return $this->render('game/playing_winner.html.twig', $data);
+
         }
 
     }
