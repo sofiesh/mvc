@@ -7,5 +7,4 @@ namespace App\Person;
  */
 class PersonAgeException // extends Exception
 {
-
 }

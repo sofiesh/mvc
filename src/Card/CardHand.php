@@ -10,12 +10,12 @@ class CardHand // Heres my new class
     private $cards = []; // It has a value called cards and I've made that an array.
     // to access the array (cards) I have to write $this->cards.
 
-    public function __construct() 
+    public function __construct()
     {
         $this->cards = array();
     }
 
-    public function addCard($drawnCard) 
+    public function addCard($drawnCard)
     {
         $this->cards[] = $drawnCard;
     }
@@ -41,7 +41,7 @@ class CardHand // Heres my new class
     }
 
 
-    public function getCardsAsStringArray() 
+    public function getCardsAsStringArray()
     {
         $values = [];
         foreach ($this->cards as $playerHand) {
@@ -53,4 +53,3 @@ class CardHand // Heres my new class
 
 
 }
-

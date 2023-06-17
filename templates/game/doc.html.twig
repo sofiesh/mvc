@@ -12,6 +12,44 @@
 
 <h2>Some pseudo code</h2>
 
+<p>When I started this assignment I first made sketches of the pages I 
+  imagined would be good to start with, see below. The circled or boxed texts 
+  indicate buttons. I very quickly created these 3 pages to have something more tangible 
+  to work on, in addition to the physical deck of cards I've had on my desk!
+<a href="{{ asset('img/21_mockups.PNG') }}">
+  <img src="{{ asset('img/21_mockups.PNG') }}" alt="">
+</a>
+</p>
+
+<p>I then wrote down what I wanted the buttons to do:
+  <ul>
+    <li>playing_player - DRAW: draw from the deck, insert into hand.</li>
+    <li>playing_player - STAY: pass turn to bank, render playing_bank twig.</li>
+    <li>playing_player - NEW GAME: Destroy session, start new session, create new deck, render playing_player twig.</li>
+    <li>playing_bank - DRAW: draw from deck, insert into another hand (bankHand).</li>
+    <li>playing_bank - STAY: Compare player vs bank (this actually turned into a new page), messages</li>
+  </ul>
+</p>
+
+<p>The classes are Card, CardDeck and CardHand:
+  <ul>
+    <li>Card: Creates an object where color and value are set.</li>
+    <li>CardDeck: Loops over a new Card to create 52 objects that are 
+      assigned a color (heart, diamonds, spades, clubs) and value from 1-13. It 
+      can also remove a card and display which one was removed.
+    </li>
+    <li>CardHand: Can pick up the card that was removed, display it and 
+      get its value.
+    </li>
+  </ul>
+
+</p>
+
+Flowchart
+<a href="{{ asset('img/21_flowchart.PNG') }}">
+  <img src="{{ asset('img/21_flowchart.PNG') }}" alt="">
+</a>
+
 <p>About the game:<br>
     <a href="https://sv.wikipedia.org/wiki/Tjugoett_(kortspel)"> 
         21 - Twenty One</a>

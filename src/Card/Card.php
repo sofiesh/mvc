@@ -6,7 +6,7 @@ class Card
 {
     private $value;
     private $color;
-    
+
     public function setValue(int $value)
     {
         $this->value = $value;
@@ -33,7 +33,7 @@ class Card
         return $text;
     }
 
-    public function getACard() 
+    public function getACard()
     {
         return $this->value . $this->color;
     }
