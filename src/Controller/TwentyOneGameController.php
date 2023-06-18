@@ -174,8 +174,6 @@ class TwentyOneGameController extends AbstractController
 
         $session->set("bankTotal", $bankHand->getHandValue());
 
-        var_dump($data);
-
         return $this->render('game/playing_bank.html.twig', $data);
     }
 
@@ -204,8 +202,6 @@ class TwentyOneGameController extends AbstractController
         ];
 
         $session->set("bankHand", $bankHand);
-
-        // $session->set("bank_round_total", $bankRoundTotal + $round);
 
         return $this->redirectToRoute('playing_bank');
     }
@@ -236,8 +232,6 @@ class TwentyOneGameController extends AbstractController
             "bankTotal" => $bankTotal,
             "winnerMessage" => $winnerMessage,
         ];
-
-        var_dump($data);
 
         return $this->render('game/playing_winner.html.twig', $data);
 

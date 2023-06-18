@@ -113,4 +113,32 @@ class ApiControllerJson extends AbstractController
 
         return new jsonResponse($data);
     }
+
+    #[Route("/api/game", name: "api_21_game", methods: ['GET'])]
+    public function gameScore(
+        SessionInterface $session
+    ): Response {
+
+        // Get deck and scores from the session
+        $thisRoundDeck = $session->get("deck");
+        $playerTotal = $session->get("playerTotal");
+        $bankTotal = $session->get("bankTotal");
+        $playerLead = $playerTotal - $bankTotal;
+        $bankLead = $bankTotal - $playerTotal;
+
+        if ($bankTotal <= $playerTotal) {
+            $scoreMessage = "Looks like the player is winning! The player has " . $playerLead . " points more.";
+        } else {
+            $scoreMessage = "Looks like the bank is winning! The bank has " . $bankLead . " points more.";
+        }
+
+        $data = [
+            // Compare scores
+            "playerTotal" => $playerTotal,
+            "bankTotal" => $bankTotal,
+            "scoreMessage" => $scoreMessage,
+        ];
+
+        return new JsonResponse($data);
+    }
 }
