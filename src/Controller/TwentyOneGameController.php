@@ -93,8 +93,6 @@ class TwentyOneGameController extends AbstractController
 
         $session->set("playerTotal", $playerHand->getHandValue());
 
-        var_dump($data);
-
         return $this->render('game/playing_player.html.twig', $data);
     }
 
@@ -123,8 +121,6 @@ class TwentyOneGameController extends AbstractController
         ];
 
         $session->set("playerHand", $playerHand);
-
-        // $session->set("player_round_total", $playerRoundTotal + $round);
 
         return $this->redirectToRoute('playing_player');
     }

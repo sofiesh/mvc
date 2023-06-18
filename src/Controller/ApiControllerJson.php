@@ -120,7 +120,6 @@ class ApiControllerJson extends AbstractController
     ): Response {
 
         // Get deck and scores from the session
-        $thisRoundDeck = $session->get("deck");
         $playerTotal = $session->get("playerTotal");
         $bankTotal = $session->get("bankTotal");
         $playerLead = $playerTotal - $bankTotal;
