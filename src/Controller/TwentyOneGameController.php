@@ -159,8 +159,6 @@ class TwentyOneGameController extends AbstractController
             // Count deck
             "countDeck" => $thisRoundDeck->countDeck(),
             // Show bankHand
-            "bankHand" => $bankHand,
-            // Show bankHand
             "bankHand" => $bankHand->getCardsAsStringArray(),
             // Show bankTotal
             "bankTotal" => $bankHand->getHandValue(),
